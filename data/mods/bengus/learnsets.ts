@@ -468,7 +468,6 @@ mrflambaygo: {
 			psychup: ["9M", "7M", "6M", "5M", "4M", "3T"],
 			psyshock: ["9M", "8M", "7M", "6M", "5M"],
 			psywave: ["9L1"],
-			psychic: ["9L1"],
 			recover: ["9L10", "8L10", "7L32", "6L32", "5L45", "4L45", "3L45", "3S1", "3S2"],
 			reflect: ["9M", "8M", "7M", "6M", "5M", "4M", "3M"],
 			refresh: ["7L13", "6L13", "5L30", "4L30", "4S3", "4S4", "3L30", "3S0"],

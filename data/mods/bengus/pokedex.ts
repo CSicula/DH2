@@ -82,6 +82,5 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 120.0,
 		requiredMove: "Third Eye Open",
 	},
-	},
 
 };

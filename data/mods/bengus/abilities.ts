@@ -63,7 +63,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	},
 
-	all-seeing: {
+	allseeing: {
 		onModifyMove(move) {
 			move.ignoreEvasion = true;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
