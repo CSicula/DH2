@@ -26,5 +26,23 @@ eeveemega: {
 		natDexTier: "Bengus OU",
 	
 	},
+
+mosquito: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
 	
+	},
+souldrake: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},	
+souldrakeawakened: {
+		tier: "Alt",
+		doublesTier: "Alt",
+		natDexTier: "Alt",
+	
+	},
 };

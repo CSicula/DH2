@@ -50,5 +50,38 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 6.5,
 		requiredItem: "Eeveeite",
 	},
+	
+	mosquito: {
+		num: -5,
+		name: "Mosquito",
+		types: ["Bug", "Poison", "Flying"],
+		baseStats: {hp: 75, atk: 112, def: 58, spa: 73, spd: 66, spe: 113},
+		abilities: {0: "Bloodsucker"},
+		weightkg: 0.1,
+	},
+
+	souldrake: {
+		num: -6,
+		name: "Souldrake",
+		types: ["Dragon"],
+		baseStats: {hp: 110, atk: 52, def: 95, spa: 61, spd: 124, spe: 53},
+		abilities: {0: "Mind's Eye", 1: "Neuroforce", H: "Regenerator"},
+		weightkg: 85.0,
+		otherFormes: ["Souldrake-Awakened"],
+		formeOrder: ["Souldrake", "Souldrake-Awakened"],
+	},
+
+	souldrakeawakened: {
+		num: -6,
+		name: "Souldrake-Awakened",
+		baseSpecies: "souldrake",
+		forme: "Awakened",
+		types: ["Dragon", "Psychic"],
+		baseStats: {hp: 102, atk: 95, def: 62, spa: 124, spd: 103, spe: 85},
+		abilities: {0: "All-Seeing"},
+		weightkg: 120.0,
+		requiredMove: "Third Eye Open",
+	},
+	},
 
 };

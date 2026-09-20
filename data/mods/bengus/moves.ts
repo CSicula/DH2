@@ -132,6 +132,49 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Ghost",
 	},
+	
+	noxiousdrain: {
+		name: "Noxious Drain",
+		type: "Poison",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "User recovers 50% of the damage dealt.",
+		desc: "The user stabs it's mouthparts into the opponent's skin and drains their blood.",
+		priority: 0,
+		flags: {protect: 1, heal: 1, mirror: 1, metronome: 1},
+		drain: [1, 2],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Fell Stinger", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
 
+	thirdeyeopen: {
+		name: "Third Eye Open",
+		type: "Psychic",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Raises SpA/Spe, lowers SpD",
+		desc: "The user awakens to inner power, increasing Special Attack and Speed.",
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		boosts: {
+			spa: 1,
+			spe: 1,
+			spd: -1,
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Miracle Eye", target);
+		},
+		secondary: null,
+		target: "self",
+	},
 
 };

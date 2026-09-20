@@ -46,4 +46,35 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Raises speed by 1 stage when using an electric-type move.",
 	},
 
+	bloodsucker: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move?.flags['heal']) { 
+				target.trySetStatus('psn', source);
+			}
+		},
+		onBasePower(basePower, attacker, defender, move) {
+			if (move.flags['heal']) {
+				return this.chainModify(1.5);
+			}
+		},
+		flags: {},
+		name: "Bloodsucker",
+		shortDesc: "Draining moves deal 1.5x damage and poison the target",
+	
+	},
+
+	all-seeing: {
+		onModifyMove(move) {
+			move.ignoreEvasion = true;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Dark'] = true;
+			}
+		},
+		flags: {},
+		name: "All-Seeing",
+		shortDesc: "Psychic-type moves ignore dark immunity",
+
+
+	},
 };
