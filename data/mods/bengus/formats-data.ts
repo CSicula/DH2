@@ -40,9 +40,9 @@ souldrake: {
 	
 	},	
 souldrakeawakened: {
-		tier: "Alt",
-		doublesTier: "Alt",
-		natDexTier: "Alt",
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
 	
-	},
+	},	
 };
