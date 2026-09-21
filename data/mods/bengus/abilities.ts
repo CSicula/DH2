@@ -77,4 +77,20 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 
 
 	},
+	
+	soyellow:{
+		onTryHit(target, source, move) {
+			if (target !== source && move.flags['sound', 'pulse']) {
+				source.trySetStatus('par', target);
+			}
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (move.flags['sound', 'pulse']) {
+				source.trySetStatus('par', target);
+			}
+		},
+		flags: {breakable: 1},
+		name: "So Yellow",
+		shortDesc: "If hit by a pulse or sound-based move, the target is paralyzed.",
+	},
 };

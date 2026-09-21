@@ -45,4 +45,10 @@ souldrakeawakened: {
 		natDexTier: "Bengus OU",
 	
 	},	
+terrakionyellow: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
 };

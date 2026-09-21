@@ -81,6 +81,17 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		abilities: {0: "All-Seeing"},
 		weightkg: 120.0,
 		requiredMove: "Third Eye Open",
+		battleOnly: "Souldrake",
+	},
+
+	terrakionyellow: {
+		num: -7,
+		name: "Terrakion-Yellow",
+		types: ["Rock", "Yellow"],
+		gender: "N",
+		baseStats: {hp: 91, atk: 129, def: 80, spa: 114, spd: 80, spe: 108},
+		abilities: {0: "So Yellow", H: "Dazzling"},
+		weightkg: 260,
 	},
 
 };

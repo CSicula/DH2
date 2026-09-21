@@ -80,7 +80,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Thunderclap", target);
+			this.add('-anim', pokemon, "Wildbolt Storm", target);
 		},
 		secondary: {
 			chance: 20,
@@ -160,7 +160,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 20,
-		shortDesc: "Raises SpA/Spe, lowers SpD",
+		shortDesc: "Raises SpA/Spe, lowers SpD. Souldrake: becomes awakened",
 		desc: "The user awakens to inner power, increasing Special Attack and Speed.",
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
@@ -173,8 +173,63 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Miracle Eye", target);
 		},
+		onHit {
+			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
+				const souldrakeForme = pokemon.species.id === 'souldrakeawakened' ? '' : '-Awakened';
+				pokemon.formeChange('Souldrake' + souldrakeForme, this.effect, false, '0', '[msg]');
+			}
+		},
 		secondary: null,
 		target: "self",
+	},
+
+	yellowbeam: {
+		name: "Yellow Beam",
+		type: "Yellow",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Turns the opponent Yellow",
+		desc: "SO SO YELLOW",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Charge Beam", target);
+		},
+		onHit(target) {
+			if (target.getTypes().join() === 'Yellow' || !target.setType('Yellow')) {
+				// Soak should animate even when it fails.
+				// Returning false would suppress the animation.
+				this.add('-fail', target);
+				return null;
+			}
+			this.add('-start', target, 'typechange', 'Yellow');
+		},
+		secondary: null,
+		target: "normal",
+	},
+	
+	scramble: {
+		name: "Scramble",
+		type: "Yellow",
+		category: "Status",
+		basePower: 0,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Confuses opponent then switches out",
+		desc: "Confuses opponent then switches out",
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Eerie Impulse", target);
+		},
+		volatileStatus: 'confusion',
+		selfSwitch: true,
+		secondary: null,
+		target: "normal",
 	},
 
 };
