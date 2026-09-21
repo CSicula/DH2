@@ -94,4 +94,13 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 260,
 	},
 
+	tarblob: {
+		num: -8,
+		name: "Tar Blob",
+		types: ["Ground", "Fire", "Rock"],
+		baseStats: {hp: 120, atk: 80, def: 105, spa: 95, spd: 85, spe: 52},
+		abilities: {0: "Protosynthesis", 1: "Critical Heat", H: "Earth Eater"},
+		weightkg: 130,
+	}
+
 };

@@ -93,4 +93,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "So Yellow",
 		shortDesc: "If hit by a pulse or sound-based move, the target is paralyzed.",
 	},
+
+	criticalheat: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (target.getMoveHitData(move).crit) {
+				target.trySetStatus('brn', source);
+			}
+		},
+		flags: {},
+		name: "Critical Heat",
+		shortDesc: "Critical hits burn the target.",
+	},
 };

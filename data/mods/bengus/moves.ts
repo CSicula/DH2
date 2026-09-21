@@ -173,10 +173,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Miracle Eye", target);
 		},
-		onHit {
+		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
+		},
+		onAfterMoveSecondarySelf(pokemon, target, move) {
+			if (move.willChangeForme) {
 				const souldrakeForme = pokemon.species.id === 'souldrakeawakened' ? '' : '-Awakened';
-				pokemon.formeChange('Souldrake' + souldrakeForme, this.effect, false, '0', '[msg]');
+				pokemon.formeChange('Souldrake' + souldrakeForme, this.effect, false, '[msg]');
 			}
 		},
 		secondary: null,
@@ -228,6 +233,50 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		volatileStatus: 'confusion',
 		selfSwitch: true,
+		secondary: null,
+		target: "normal",
+	},
+
+	bitumensurge: {
+		name: "Bitumen Surge",
+		type: "Ground",
+		category: "Special",
+		basePower: 100,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits all adjaccent foes; 100% chance to lower evasion.",
+		desc: "",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tar Shot", target);
+		},
+		secondary: {
+			chance: 100,
+			boosts: {
+				evasion: -1,
+			},
+		},
+		target: "allAdjacentFoes",
+	},
+
+	ignitionpoint: {
+		name: "Ignition Point",
+		type: "Fire",
+		category: "Special",
+		basePower: 60,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Garunteed crit",
+		desc: "",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Fire Lash", target);
+		},
+		willCrit: true,
 		secondary: null,
 		target: "normal",
 	},

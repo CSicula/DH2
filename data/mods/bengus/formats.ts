@@ -14,7 +14,7 @@ export const Formats: FormatData[] = [
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['Bengus OU', 'Bengus OU (by technicality)'];
+			let allowedTiers = ['Bengus OU', 'Bengus OU (by technicality)', 'OU'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {
