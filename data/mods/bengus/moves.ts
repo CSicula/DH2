@@ -180,16 +180,14 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		onHit(pokemon) {
 			const oldAbility = pokemon.setAbility('allseeing');
+			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
+				move.willChangeForme = true;
+			}
 			if (oldAbility) {
 				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open');
 				return;
 			}
 			return oldAbility as false | null;
-		},
-		onHit(target, pokemon, move) {
-			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
-				move.willChangeForme = true;
-			}
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
@@ -287,7 +285,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Fire Lash", target);
+			this.add('-anim', pokemon, "Polar Flare", target);
 		},
 		willCrit: true,
 		secondary: null,

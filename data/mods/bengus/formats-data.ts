@@ -46,9 +46,9 @@ souldrakeawakened: {
 	
 	},	
 terrakionyellow: {
-		tier: "OU",
-		doublesTier: "OU",
-		natDexTier: "OU",
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
 	
 	},
 tarblob: {
