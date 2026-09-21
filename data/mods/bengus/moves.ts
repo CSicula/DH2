@@ -173,6 +173,19 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Miracle Eye", target);
 		},
+		onTryHit(target) {
+			if (target.getAbility().flags['cantsuppress'] || target.ability === 'allseeing' || target.ability === 'truant') {
+				return false;
+			}
+		},
+		onHit(pokemon) {
+			const oldAbility = pokemon.setAbility('allseeing');
+			if (oldAbility) {
+				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open');
+				return;
+			}
+			return oldAbility as false | null;
+		},
 		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
 				move.willChangeForme = true;

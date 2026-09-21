@@ -14,6 +14,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 
+	fortnitedisk: {
+		name: "Fortnite Disk",
+		fling: {
+			basePower: 30,
+		},
+		shortDesc: "Boosts bullet-based moves by 1.2x",
+		onBasePowerPriority: 23,
+		onBasePower(basePower, user, target, move) {
+			if (move.flags['punch']) {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+	},
 
 
 
