@@ -104,4 +104,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Critical Heat",
 		shortDesc: "Critical hits burn the target.",
 	},
+
+	viscous: {
+		onSourceModifyDamage(damage, source, target, move) {
+			let mod = 1;
+			if (move.type === 'Water') mod *= 2;
+			if (move.flags['contact']) mod /= 2;
+			return this.chainModify(mod);
+		},
+		flags: {breakable: 1},
+		name: "Viscous",
+		shortDesc: "Takes half contact damage, becomes weaker to water.",
+	},
 };

@@ -28,7 +28,20 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 
-
+	eeveeite: {
+		name: "Noivernite",
+		megaStone: "Noivern-Mega",
+		megaEvolves: "Noivern",
+		shortDesc: "If held by an Noivern, this item allows it to Mega Evolve in battle.",
+		itemUser: ["Noivern"],
+		fling: {
+			basePower: 80,
+		},
+		onTakeItem(item, source) {
+			if (item.megaEvolves === source.baseSpecies.baseSpecies) return false;
+			return true;
+		},
+	},
 
 
 };

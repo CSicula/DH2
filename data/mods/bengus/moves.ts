@@ -173,21 +173,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Miracle Eye", target);
 		},
-		onTryHit(target) {
-			if (target.getAbility().flags['cantsuppress'] || target.ability === 'allseeing' || target.ability === 'truant') {
-				return false;
-			}
-		},
+		
 		onHit(pokemon) {
 			const oldAbility = pokemon.setAbility('allseeing');
 			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
-			if (oldAbility) {
+			if target.ability !=== 'allseeing' {
 				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open');
 				return;
 			}
-			return oldAbility as false | null;
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
@@ -261,7 +256,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Tar Shot", target);
+			this.add('-anim', pokemon, "Mud Shot", target);
 		},
 		secondary: {
 			chance: 100,
@@ -288,6 +283,49 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Polar Flare", target);
 		},
 		willCrit: true,
+		secondary: null,
+		target: "normal",
+	},
+
+	sonicwind: {
+		name: "Sonic Wind",
+		type: "Flying",
+		category: "Special",
+		basePower: 105,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "No additional effect",
+		desc: "The user breaks the sound barrier with high-speed winds.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Boomburst", target);
+		},
+		secondary: null,
+		target: "allAdjacentFoes",
+	},
+
+	mustardshot: {
+		name: "Mustard Shot",
+		type: "Yellow",
+		category: "Special",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "30% chance to inflict burn",
+		desc: "MUSTARD MUSTARD MUSTARD",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, defrost: 1, metronome: 1},
+		thawsTarget: true,
+		secondary: {
+			chance: 30,
+			status: 'brn',
+		},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Tar Shot", target);
+		},
 		secondary: null,
 		target: "normal",
 	},

@@ -101,6 +101,39 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 120, atk: 80, def: 105, spa: 95, spd: 85, spe: 52},
 		abilities: {0: "Protosynthesis", 1: "Critical Heat", H: "Earth Eater"},
 		weightkg: 130,
-	}
+	},
+
+	noivern: {
+		name: "Noivern",
+		types: ["Flying", "Dragon"],
+		baseStats: {hp: 85, atk: 70, def: 80, spa: 97, spd: 80, spe: 123},
+		abilities: {0: "Frisk", 1: "Infiltrator", H: "Telepathy"},
+		heightm: 1.5,
+		weightkg: 85,
+		color: "Purple",
+		prevo: "Noibat",
+		evoLevel: 48,
+		eggGroups: ["Flying", "Dragon"],
+	},
+
+	noivernmega: {
+		name: "Noivern-Mega",
+		baseSpecies: "Noivern",
+		forme: "Mega",
+		types: ["Flying", "Dragon"],
+		baseStats: {hp: 85, atk: 80, def: 95, spa: 127, spd: 105, spe: 143},
+		abilities: {0: "Punk Rock"},
+		weightkg: 105,
+		requiredItem: "Noivernite",
+	},
+
+	mustard: {
+		num: -10,
+		name: "Mustard",
+		types: ["Yellow", "Grass"],
+		baseStats: {hp: 108, atk: 65, def: 116, spa: 98, spd: 113, spe: 35},
+		abilities: {0: "Viscous"},
+		weightkg: 0.1,
+	},
 
 };

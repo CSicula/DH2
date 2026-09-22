@@ -40,9 +40,9 @@ souldrake: {
 	
 	},	
 souldrakeawakened: {
-		tier: "Bengus OU",
-		doublesTier: "Bengus OU",
-		natDexTier: "Bengus OU",
+		tier: "ALT",
+		doublesTier: "ALT",
+		natDexTier: "ALT",
 	
 	},	
 terrakionyellow: {
@@ -52,6 +52,23 @@ terrakionyellow: {
 	
 	},
 tarblob: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
+noivern: {
+		tier: "Bengus OU (by technicality)",
+		doublesTier: "Bengus OU (by technicality)",
+		natDexTier: "Bengus OU (by technicality)",
+	},
+noivernmega: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
+mustard: {
 		tier: "Bengus OU",
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
