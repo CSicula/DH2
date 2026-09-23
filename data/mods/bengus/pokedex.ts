@@ -136,4 +136,26 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 0.1,
 	},
 
+	centiskorch: {
+		num: -11,
+		name: "Centiskorch",
+		types: ["Fire", "Bug"],
+		baseStats: {hp: 120, atk: 135, def: 85, spa: 110, spd: 110, spe: 85},
+		abilities: {0: "Desolate Land", 1: "Invertebrate Superiority", H: "Flame Body"},
+		weightkg: 120,
+		canGigantamax: "G-Max Centiferno",
+	},
+
+	centiskorchcerulean: {
+		num: -12,
+		name: "Centiskorch-Cerulean",
+		baseSpecies: "Centiskorch",
+		forme: "Cerulean",
+		types: ["Fire", "Bug", "Water"],
+		baseStats: {hp: 105, atk: 100, def: 75, spa: 145, spd: 120, spe: 100},
+		abilities: {0: "Primordial Sea", 1: "Invertebrate Superiority", H: "Storm Drain"},
+		weightkg: 120,
+		canGigantamax: "G-Max Centiferno",
+	},
+
 };

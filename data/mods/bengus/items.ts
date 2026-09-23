@@ -28,7 +28,7 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 	},
 
-	eeveeite: {
+	noivernite: {
 		name: "Noivernite",
 		megaStone: "Noivern-Mega",
 		megaEvolves: "Noivern",

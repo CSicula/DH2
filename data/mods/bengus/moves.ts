@@ -175,19 +175,15 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		},
 		
 		onHit(pokemon) {
-			const oldAbility = pokemon.setAbility('allseeing');
 			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
 				move.willChangeForme = true;
-			}
-			if target.ability !=== 'allseeing' {
-				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open');
-				return;
 			}
 		},
 		onAfterMoveSecondarySelf(pokemon, target, move) {
 			if (move.willChangeForme) {
 				const souldrakeForme = pokemon.species.id === 'souldrakeawakened' ? '' : '-Awakened';
 				pokemon.formeChange('Souldrake' + souldrakeForme, this.effect, false, '[msg]');
+				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open')
 			}
 		},
 		secondary: null,
@@ -326,7 +322,44 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Tar Shot", target);
 		},
-		secondary: null,
+		target: "normal",
+	},
+
+	centiferno: {
+		name: "Centiferno",
+		type: "Fire",
+		category: "Physical",
+		basePower: 120,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Applies fire spin on hit.",
+		desc: "I love cennypedes.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'partiallytrapped',
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "G-Max Centiferno", target);
+		},
+		target: "normal",
+	},
+
+	ceruleancentiferno: {
+		name: "Cerulean Centiferno",
+		type: "Water",
+		category: "Special",
+		basePower: 120,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Applies fire spin on hit.",
+		desc: "I love cennypedes.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'partiallytrapped',
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "G-Max Cannonade", target);
+		},
 		target: "normal",
 	},
 

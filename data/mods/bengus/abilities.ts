@@ -116,4 +116,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Viscous",
 		shortDesc: "Takes half contact damage, becomes weaker to water.",
 	},
+
+	invertebratesuperiority: {
+		
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				return this.chainModify(2.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(atk, attacker, defender, move) {
+			if (move.type === 'Bug') {
+				return this.chainModify(2.5);
+			}
+		},
+		flags: {},
+		name: "Invertebrate Superiority",
+		shortDesc: "Boosts the damage of bug-type moves by 2.5x",
+	},
 };

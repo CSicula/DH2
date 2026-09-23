@@ -74,4 +74,14 @@ mustard: {
 		natDexTier: "Bengus OU",
 	
 	},
+centiskorch: {
+		tier: "Bengus Ubers",
+		doublesTier: "Bengus Ubers",
+		natDexTier: "Bengus Ubers",
+	},
+centiskorchcerulean: {
+		tier: "Bengus Ubers",
+		doublesTier: "Bengus Ubers",
+		natDexTier: "Bengus Ubers",
+	},
 };
