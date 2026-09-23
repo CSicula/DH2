@@ -140,22 +140,50 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -11,
 		name: "Centiskorch",
 		types: ["Fire", "Bug"],
-		baseStats: {hp: 120, atk: 135, def: 85, spa: 110, spd: 110, spe: 85},
+		baseStats: {hp: 120, atk: 155, def: 85, spa: 110, spd: 110, spe: 85},
 		abilities: {0: "Desolate Land", 1: "Invertebrate Superiority", H: "Flame Body"},
 		weightkg: 120,
 		canGigantamax: "G-Max Centiferno",
 	},
 
 	centiskorchcerulean: {
-		num: -12,
+		num: -11,
 		name: "Centiskorch-Cerulean",
 		baseSpecies: "Centiskorch",
 		forme: "Cerulean",
 		types: ["Fire", "Bug", "Water"],
-		baseStats: {hp: 105, atk: 100, def: 75, spa: 145, spd: 120, spe: 100},
+		baseStats: {hp: 105, atk: 100, def: 75, spa: 165, spd: 120, spe: 100},
 		abilities: {0: "Primordial Sea", 1: "Invertebrate Superiority", H: "Storm Drain"},
 		weightkg: 120,
 		canGigantamax: "G-Max Centiferno",
+	},
+
+	mora: {
+		num: -12,
+		name: "Mora",
+		types: ["Yellow"],
+		baseStats: {hp: 5, atk: 999, def: 5, spa: 5, spd: 5, spe: 200},
+		abilities: {0: "Let's Go Gambling!"},
+		weightkg: 0.1,
+	},
+
+	violet: {
+		num: -13,
+		name: "Violet",
+		types: ["Fairy", "Fighting"],
+		baseStats: {hp: 100, atk: 140, def: 47, spa: 115, spd: 47, spe: 135},
+		abilities: {0: "Veil of Midnight"},
+		weightkg: 51,
+	},
+
+	anorith: {
+		num: -14,
+		name: "Anorith",
+		types: ["Rock", "Bug"],
+		genderRatio: {M: 0.875, F: 0.125},
+		baseStats: {hp: 75, atk: 125, def: 80, spa: 70, spd: 80, spe: 105},
+		abilities: {0: "One in a Krillion"},
+		weightkg: 12.5,
 	},
 
 };

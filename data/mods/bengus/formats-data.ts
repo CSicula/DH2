@@ -72,7 +72,6 @@ mustard: {
 		tier: "Bengus OU",
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
-	
 	},
 centiskorch: {
 		tier: "Bengus Ubers",
@@ -83,5 +82,20 @@ centiskorchcerulean: {
 		tier: "Bengus Ubers",
 		doublesTier: "Bengus Ubers",
 		natDexTier: "Bengus Ubers",
+	},
+mora: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
+violet: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
+anorith: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
 	},
 };

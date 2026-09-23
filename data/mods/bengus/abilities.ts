@@ -135,4 +135,57 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		name: "Invertebrate Superiority",
 		shortDesc: "Boosts the damage of bug-type moves by 2.5x",
 	},
+
+	letsgogambling: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (this.randomChance(1, 2)) {
+				if (!pokemon.hp) return;
+				for (const target of pokemon.foes()) {
+					this.damage(target.baseMaxhp, target, pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Let's Go Gambling!",
+		shortDesc: "50% chance to ko opposing pokemon every turn.",
+	},
+
+	veilofmidnight: {
+		onDamagingHit(damage, target, source, move) {
+			if (this.randomChance(2, 10) && damage >= target.hp) {
+				return target.hp - 1;
+			}
+		},
+		flags: {},
+		name: "Veil of Midnight",
+		shortDesc: "20% not to be ko'd by a fatal attack.",
+	},
+	
+	oneinakrillion: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (this.randomChance(1, 1000000)) {
+				
+				this.win(pokemon.side);
+			}
+		},
+		onAnyInvulnerabilityPriority: 1,
+		onAnyInvulnerability(target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) return 0;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (move && (source === this.effectState.target || target === this.effectState.target)) {
+				return true;
+			}
+			return accuracy;
+		},
+		flags: {},
+		name: "One in a Krillion",
+		shortDesc: "No Guard + 1 in 1 million chance to win the game each turn.",
+	},
+
+
 };

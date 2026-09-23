@@ -358,9 +358,69 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		volatileStatus: 'partiallytrapped',
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "G-Max Cannonade", target);
+			this.add('-anim', pokemon, "Blue Flare", target);
 		},
 		target: "normal",
+	},
+
+	masquerade: {
+		name: "Masquerade",
+		type: "Fighting",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Hits twice; high crit.",
+		desc: "Hits twice; high crit.",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		critRatio: 2,
+		multihit: 2,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Twinkle Tackle", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	kougaon: {
+		name: "Kougaon",
+		type: "Fairy",
+		category: "Special",
+		basePower: 100,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "No additional effect.",
+		desc: "No additional effect.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "G-Max Starfall", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	alidance: {
+		accuracy: true,
+		basePower: 0,
+		type: "Fighting",
+		category: "Status",
+		name: "Ali Dance",
+		pp: 15,
+		priority: 0,
+		flags: {snatch: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Lunar Dance", target);
+		},
+		boosts: {
+			evasion: 2,
+		},
+		secondary: null,
+		target: "self",
 	},
 
 };
