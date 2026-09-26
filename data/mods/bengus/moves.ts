@@ -183,8 +183,11 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			if (move.willChangeForme) {
 				const souldrakeForme = pokemon.species.id === 'souldrakeawakened' ? '' : '-Awakened';
 				pokemon.formeChange('Souldrake' + souldrakeForme, this.effect, false, '[msg]');
-				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open')
+				const oldAbility = pokemon.setAbility('allseeing');
+				this.add('-ability', pokemon, 'allseeing', '[from] move: Third Eye Open');
+				return;
 			}
+			return oldAbility as false | null;
 		},
 		secondary: null,
 		target: "self",
@@ -472,6 +475,67 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			}
 		},
 
+		secondary: null,
+		target: "normal",
+	},
+
+	predatorstrike: {
+		name: "Predator Strike",
+		type: "Bug",
+		category: "Physical",
+		basePower: 70,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Usually goes first.",
+		desc: "",
+		priority: 1,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "X-Scissor", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	opportunitystrike: {
+		name: "Opportunity Strike",
+		type: "Dark",
+		category: "Physical",
+		basePower: 75,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "Deals x2 damage if target does not deal damage this turn.",
+		desc: "",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+
+		onBasePower(basePower, source, target, move) {
+			//const action = this.queue.willMove(target);
+			// const status = action?.choice === 'status' ? action.move : null;
+			// code needs to be reversed if un double slashed lmao idk
+			// if (!status || (move.category === 'Move' && move.id !== 'mefirst')) {
+			// if (action.categ !=== 'Status
+			//	return this.chainModify(2);
+			//}
+
+
+			// try removing move parameter?
+
+			const action = this.queue.willMove(target);
+			const move = action?.choice === 'move' ? action.move : null;
+			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				return this.chainModify(2);
+			}
+			
+		},
+
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "First Impression", target);
+		},
+
+		
 		secondary: null,
 		target: "normal",
 	},

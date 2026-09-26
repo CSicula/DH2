@@ -197,4 +197,14 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 122,
 	},
 
+	xenosect: {
+		num: -16,
+		name: "Xenosect",
+		types: ["Dark", "Bug"],
+		genderRatio: {M: 0.65, F: 0.35},
+		baseStats: {hp: 93, atk: 151, def: 107, spa: 69, spd: 50, spe: 130},
+		abilities: {0: "Thrill of the Hunt", H: "Sniper"},
+		weightkg: 181.43,
+	},
+
 };

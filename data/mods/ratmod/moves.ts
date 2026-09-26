@@ -117,7 +117,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Focus Blast", target);
 		},
 		onHit(target, pokemon) {
-			pokemon.trySetVolatileStatus('confusion', pokemon);
+			pokemon.trySetStatus('confusion', pokemon);
 		},
 		secondary: null,
 		target: "normal",

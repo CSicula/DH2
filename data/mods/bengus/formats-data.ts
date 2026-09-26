@@ -103,4 +103,9 @@ chris: {
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
 	},
+xenosect: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
 };

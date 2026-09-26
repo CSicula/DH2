@@ -198,5 +198,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Inflicts fear on switch-in.",
 	},
 
+	thrillofthehunt: {
+		onResidual(pokemon) {
+			if (pokemon.activeTurns) {
+				for (const target of pokemon.adjacentFoes()) {
+					if (!target.activeTurns) {
+
+						this.boost({spe: 1});
+					}
+				}
+
+			}
+		},
+
+		flags: {},
+		name: "Thrill of the Hunt",
+		shortDesc: "Spe/Atk raised by 1 stage when opponent switches out.",
+	},
+
 
 };
