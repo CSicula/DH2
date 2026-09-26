@@ -89,6 +89,6 @@ export const Learnsets: {[speciesid: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["7T", "6T", "5T", "4T"],
 		},
 
-
+	},
 
 };
