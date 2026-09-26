@@ -171,6 +171,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		num: -13,
 		name: "Violet",
 		types: ["Fairy", "Fighting"],
+		gender: "F",
 		baseStats: {hp: 100, atk: 140, def: 47, spa: 115, spd: 47, spe: 135},
 		abilities: {0: "Veil of Midnight"},
 		weightkg: 51,
@@ -184,6 +185,16 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 75, atk: 125, def: 80, spa: 70, spd: 80, spe: 105},
 		abilities: {0: "One in a Krillion"},
 		weightkg: 12.5,
+	},
+
+	chris: {
+		num: -15,
+		name: "Chris",
+		types: ["???"],
+		gender: "M",
+		baseStats: {hp: 100, atk: 110, def: 90, spa: 90, spd: 90, spe: 100},
+		abilities: {0: "Horrification"},
+		weightkg: 122,
 	},
 
 };

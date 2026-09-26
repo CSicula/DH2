@@ -397,7 +397,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "G-Max Starfall", target);
+			this.add('-anim', pokemon, "G-Max Finale", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -420,7 +420,51 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			evasion: 2,
 		},
 		secondary: null,
+		shortDesc: "Raises evasion by 2 stages",
 		target: "self",
 	},
+
+	scaryface: {
+		accuracy: 100,
+		basePower: 0,
+		category: "Status",
+		name: "Scary Face",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
+		status: 'fear'
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
+
+	enigmabolt: {
+		name: "Enigma Bolt",
+		type: "???",
+		category: "Physical",
+		basePower: 105,
+		accuracy: 100,
+		pp: 10,
+		shortDesc: "This move is mysterious...",
+		desc: "This move is mysterious...",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Searing Sunraze Smash", target);
+		},
+		onHit(target) {
+			const stats: BoostID[] = [];
+			let stat: BoostID;
+			for (stat in target.boosts) {
+				if (target.boosts[stat] < 6) {
+					stats.push(stat);
+				}
+			}
+		},
+		secondary: null,
+		target: "normal",
+	},
+
 
 };

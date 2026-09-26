@@ -98,4 +98,9 @@ anorith: {
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
 	},
+chris: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
 };

@@ -187,5 +187,16 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "No Guard + 1 in 1 million chance to win the game each turn.",
 	},
 
+	horrification: {
+		onStart(pokemon) {
+			for (const target of pokemon.adjacentFoes()) {
+				target.trySetStatus('fear');
+			}
+		},
+		flags: {},
+		name: "Horrification",
+		shortDesc: "Inflicts fear on switch-in.",
+	},
+
 
 };
