@@ -9,9 +9,9 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	*/
 	
 	stealfood: {
-		onStart(pokemon) {
-			for (const target of pokemon.adjacentFoes()) {
-				if (item.isBerry) {
+		onHit(target, source) {
+			const item = target.getItem();
+			if (source.hp && item.isBerry && target.takeItem(source)) {
 				this.add('-enditem', target, item.name, '[from] stealeat', '[ability] Steal Food', '[of] ' + source);
 				if (this.singleEvent('Eat', item, null, source, null, null)) {
 					this.runEvent('EatItem', source, null, null, item);
@@ -19,12 +19,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				}
 				if (item.onEat) source.ateBerry = true;
 			}
-
-			}
 		},
+
 		flags: {},
 		name: "Steal Food",
-		shortDesc: "Consumes berry on switch-in",
+		shortDesc: "Consumes berry on successful hit",
 	},
 
 	ratability: {
