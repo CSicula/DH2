@@ -970,7 +970,7 @@ mrflambaygo: {
 			splash: ["9L1"],
 			teleport: ["9L1"],
 			celebrate: ["9L1"],
-			pulverizingpancake: ["9L1"]
+			neverendingnightmare: ["9L1"]
 		},
 	},
 

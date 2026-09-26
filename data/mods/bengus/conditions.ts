@@ -3,7 +3,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		name: 'Fear',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
-			// this.add('-message', 'This sends a message I think');
+			this.add('-message', 'Chris scares the opponent...');
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'fear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {

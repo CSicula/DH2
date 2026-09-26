@@ -397,7 +397,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "G-Max Finale", target);
+			this.add('-anim', pokemon, "Sparkly Swirl", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -432,7 +432,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, allyanim: 1, metronome: 1},
-		status: 'fear'
+		status: 'fear',
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -453,6 +453,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Searing Sunraze Smash", target);
 		},
+
 		onHit(target) {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
@@ -461,7 +462,16 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 					stats.push(stat);
 				}
 			}
+			if (stats.length) {
+				const randomStat = this.sample(stats);
+				const boost: SparseBoostsTable = {};
+				boost[randomStat] = 2;
+				this.boost(boost);
+			} else {
+				return false;
+			}
 		},
+
 		secondary: null,
 		target: "normal",
 	},

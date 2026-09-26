@@ -198,6 +198,7 @@ import { Formats as PokeTypos                   } from '../data/mods/poketypos/f
 import { Formats as PonymonShowdown             } from '../data/mods/ponymonshowdown/formats';
 import { Formats as PublicDomain                } from '../data/mods/publicdomain/formats';
 import { Formats as RandomTandem                } from '../data/mods/randomtandem/formats';
+import { Formats as Ratmod                	} from '../data/mods/ratmod/formats';
 import { Formats as ReGeneration                } from '../data/mods/regeneration/formats';
 import { Formats as ResetMons                   } from '../data/mods/resetmons/formats';
 import { Formats as RegionalEvolutions          } from '../data/mods/regionalevolutions/formats';
@@ -529,4 +530,5 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	...bengus,
+	...ratmod,
 ];

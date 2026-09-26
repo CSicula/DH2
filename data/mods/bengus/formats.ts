@@ -10,7 +10,7 @@ export const Formats: FormatData[] = [
 		mod: 'bengus',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [ 'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',],
-		unbanlist: ['Shedinja'],
+		unbanlist: ['Shedinja', 'G-Max Befuddle', 'G-Max Steelsurge',],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
