@@ -239,11 +239,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (move.type === 'Slicing') {
 				serenadeHit = True;
 			}
-		},
-		onModifyCritRatio(critRatio) {
-			if serenadeHit:
+			onModifyCritRatio(critRatio) {
+			if serenadeHit {
 				return critRatio + 1;
+			}
 		},
+		},
+		
 		flags: {},
 		name: "Living Weapon",
 		shortDesc: "Raises crit ratio by 1 stage when using a move.",

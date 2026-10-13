@@ -216,7 +216,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		weightkg: 791,
 	},
 
-	9volt: {
+	ninevolt: {
 		num: -18,
 		name: "9-Volt",
 		types: ["Steel, Electric"],

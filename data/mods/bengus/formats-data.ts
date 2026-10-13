@@ -113,7 +113,7 @@ worldsquidday2026: {
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
 	},
-9volt: {
+ninevolt: {
 		tier: "Bengus OU",
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",

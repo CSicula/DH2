@@ -576,7 +576,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 				this.add('-end', target, 'Frostbite', '[silent]');
 			},
 				
-		}
+		},
 
 		secondary: {
 			chance: 100,

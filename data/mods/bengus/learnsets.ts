@@ -1519,7 +1519,7 @@ mrflambaygo: {
 			withdraw: ["9L1"],
 	},
 
-	9volt: {
+	ninevolt: {
 		learnset: {
 			allyswitch: ["8M", "7T"],
 			barrier: ["7L1", "6L1", "5L1", "4L1"],
