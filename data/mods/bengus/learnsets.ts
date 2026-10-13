@@ -1512,11 +1512,13 @@ mrflambaygo: {
 			watergun: ["9L1"],
 			waterpledge: ["9L1"],
 			waterpulse: ["9L1"],
-			watershurkien: ["9L1"],
+			watershuriken: ["9L1"],
 			waterspout: ["9L1"],
 			wavecrash: ["9L1"],
 			whirlpool: ["9L1"],
 			withdraw: ["9L1"],
+
+		},
 	},
 
 	ninevolt: {
@@ -1690,7 +1692,6 @@ mrflambaygo: {
 			disarmingvoice: ["9M"],
 			dive: ["8M", "6M", "5M", "4T", "3M"],
 			doubleedge: ["9M", "7V", "3T"],
-			doubleteam: ["7M", "7V", "6M", "5M", "4M", "3M"],M", "8V", "7T", "7E", "6T", "6E", "5T", "5E", "4M"],
 			dreameater: ["8V", "7M", "7V", "6M", "5M", "4M", "3T"],
 			earthpower: ["9L1"],
 			earthquake: ["9M"],

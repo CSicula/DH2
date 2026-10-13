@@ -231,19 +231,23 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "Deals 1/16th of the opponent's max hp every turn.",
 	},
 
-	livingweapom: {
-		onPrepareHit(source, target, move) {
-			const serenadeHit = False;
-			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
-			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+	livingweapon: {
+		
+		//onPrepareHit(source, target, move) {
+		//	const serenadeHit = False;
+		//	if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+		//	move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+		//	if (move.type === 'Slicing') {
+		//		serenadeHit = True;
+		//	}
+		//},
+
+		onModifyCritRatio(critRatio, move) {
+
 			if (move.type === 'Slicing') {
-				serenadeHit = True;
-			}
-			onModifyCritRatio(critRatio) {
-			if serenadeHit {
 				return critRatio + 1;
 			}
-		},
+		
 		},
 		
 		flags: {},
