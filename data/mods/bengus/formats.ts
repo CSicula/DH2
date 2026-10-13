@@ -10,11 +10,11 @@ export const Formats: FormatData[] = [
 		mod: 'bengus',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Evasion Clause', 'OHKO Clause'],
 		banlist: [ 'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',],
-		unbanlist: ['Shedinja', 'G-Max Befuddle', 'G-Max Steelsurge',],
+		unbanlist: ['Shedinja', 'G-Max Befuddle', 'G-Max Steelsurge', 'G-Max Cannonade', 'G-Max Hydrosnipe', 'G-Max Stonesurge'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {
 			let speciesTable = {};
-			let allowedTiers = ['Bengus OU', 'Bengus OU (by technicality)', 'OU'];
+			let allowedTiers = ['Bengus OU', 'Bengus OU (by technicality)'];
 			for (const set of team) {
 				let template = this.dex.species.get(set.species);
 				if (!allowedTiers.includes(template.tier)) {

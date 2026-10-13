@@ -44,7 +44,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
   			return this.chainModify(0.75);
   		},
 		onTry(source, target, move) {
-			if (move.flags['sound']) {
+			if (move.flags['slicing']) {
 				this.add('-fail', source);
         		this.add(`c:|${Math.floor(Date.now() / 1000)}|${getName(target.name)}|Shut Up‼️`);
 				return null;

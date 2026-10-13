@@ -209,7 +209,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	worldsquidday2026: {
 		num: -17,
-		name: "World Squid Day 2026",
+		name: "World Squid Day 26",
 		types: ["Water"],
 		baseStats: {hp: 137, atk: 115, def: 122, spa: 96, spd: 131, spe: 54},
 		abilities: {0: "Kraken's Wrath"},
@@ -218,8 +218,8 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	ninevolt: {
 		num: -18,
-		name: "9-Volt",
-		types: ["Steel, Electric"],
+		name: "Nine-Volt",
+		types: ["Steel", "Electric"],
 		baseStats: {hp: 48, atk: 62, def: 86, spa: 134, spd: 127, spe: 116},
 		abilities: {0: "Supercharged", 1:"Battery"},
 		weightkg: 0.1,
@@ -228,7 +228,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	serenade: {
 		num: -19,
 		name: "Serenade",
-		types: ["Steel, Dragon"],
+		types: ["Steel", "Dragon"],
 		baseStats: {hp: 82, atk: 141, def: 121, spa: 59, spd: 58, spe: 137},
 		abilities: {0: "Sharpness", 1:"Living Weapon"},
 		weightkg: 1.5,
@@ -237,7 +237,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	antarctica: {
 		num: -20,
 		name: "Antarctica",
-		types: ["Ice, Water"],
+		types: ["Ice", "Water"],
 		baseStats: {hp: 145, atk: 82, def: 113, spa: 124, spd: 152, spe: 79},
 		abilities: {0: "Snow Warning", 1:"Ice Body", H: "Snow Cloak"},
 		weightkg: 999.9,

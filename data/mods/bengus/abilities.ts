@@ -68,7 +68,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			move.ignoreEvasion = true;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
-				move.ignoreImmunity['Dark'] = true;
+				move.ignoreImmunity['Psychic'] = true;
 			}
 		},
 		flags: {},
@@ -190,7 +190,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	horrification: {
 		onStart(pokemon) {
 			for (const target of pokemon.adjacentFoes()) {
-				target.trySetStatus('fear');
+				target.addVolatile('fear');
 			}
 		},
 		flags: {},
@@ -223,36 +223,56 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
-				this.damage(target.baseMaxhp/16, target, pokemon);
+				this.damage(target.baseMaxhp/12, target, pokemon);
 			}
 		},
 		flags: {},
 		name: "Kraken's Wrath",
-		shortDesc: "Deals 1/16th of the opponent's max hp every turn.",
+		shortDesc: "Deals 1/12th of the opponent's max hp every turn.",
 	},
 
 	livingweapon: {
 		
-		//onPrepareHit(source, target, move) {
-		//	const serenadeHit = False;
-		//	if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
-		//	move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
-		//	if (move.type === 'Slicing') {
-		//		serenadeHit = True;
-		//	}
-		//},
+		onStart(pokemon) {
+			
+			// this.add('-activate', pokemon, 'ability: Living Weapon');
+			const marks = 0;
+			this.add('-start', pokemon, `marks${marks}`, '[silent]');
+			this.effectState.marks = marks;
 
-		onModifyCritRatio(critRatio, move) {
+		},
 
-			if (move.type === 'Slicing') {
-				return critRatio + 1;
+
+		onEnd(pokemon) {
+			this.add('-end', pokemon, `marks${this.effectState.marks}`, '[silent]');
+		},
+
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+			if (move.flags['sound']) {
+				this.add('-activate', pokemon, 'ability: Living Weapon');
+				this.effectState.marks += 1;
+
 			}
-		
+			
+
+		},
+
+
+
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (this.effectState.marks) {
+				const powMod = [4096, 4506, 4915, 5325, 5734, 6144];
+				this.debug(`Supreme Overlord boost: ${powMod[this.effectState.marks]}/4096`);
+				return this.chainModify([powMod[this.effectState.marks], 4096]);
+			}
 		},
 		
 		flags: {},
 		name: "Living Weapon",
-		shortDesc: "Raises crit ratio by 1 stage when using a move.",
+		shortDesc: "Boosts damage after using a slicing move.",
 	},
 
 

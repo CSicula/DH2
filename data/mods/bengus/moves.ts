@@ -452,13 +452,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		desc: "This move is mysterious...",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		onPrepareHit(target, pokemon, move) {
+		onPrepareHit(source, target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Searing Sunraze Smash", target);
 			const stats: BoostID[] = [];
 			let stat: BoostID;
-			for (stat in target.boosts) {
-				if (target.boosts[stat] < 6) {
+			for (stat in source.boosts) {
+				if (source.boosts[stat] < 6) {
 					stats.push(stat);
 				}
 			}
@@ -552,30 +552,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Icy Wind", target);
-		},
-		condition: {
-			duration: 3,
-			onStart(target) {
-				this.add('-start', target, 'Frostbite', '[silent]');
-			},
-
-			onResidual(target) {
-				if (!target.hp) return;
-				let move: Move | ActiveMove | null = target.lastMove;
-				if (!move || move.isZ) return;
-				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
-
-				const ppDeducted = target.deductPP(move.id, 3);
-				if (!ppDeducted) return;
-				this.add('-activate', target, 'volatile: Frostbite', move.name, ppDeducted);
-			},
-
-
-			onResidualOrder: 22,
-			onEnd(target) {
-				this.add('-end', target, 'Frostbite', '[silent]');
-			},
-				
 		},
 
 		secondary: {
