@@ -205,6 +205,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 					if (!target.activeTurns) {
 
 						this.boost({spe: 1});
+						this.boost({atk: 1});
 					}
 				}
 
@@ -214,6 +215,38 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Thrill of the Hunt",
 		shortDesc: "Spe/Atk raised by 1 stage when opponent switches out.",
+	},
+
+	krakenswrath: {
+		onResidualOrder: 28,
+		onResidualSubOrder: 4,
+		onResidual(pokemon) {
+			if (!pokemon.hp) return;
+			for (const target of pokemon.foes()) {
+				this.damage(target.baseMaxhp/16, target, pokemon);
+			}
+		},
+		flags: {},
+		name: "Kraken's Wrath",
+		shortDesc: "Deals 1/16th of the opponent's max hp every turn.",
+	},
+
+	livingweapom: {
+		onPrepareHit(source, target, move) {
+			const serenadeHit = False;
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
+			if (move.type === 'Slicing') {
+				serenadeHit = True;
+			}
+		},
+		onModifyCritRatio(critRatio) {
+			if serenadeHit:
+				return critRatio + 1;
+		},
+		flags: {},
+		name: "Living Weapon",
+		shortDesc: "Raises crit ratio by 1 stage when using a move.",
 	},
 
 

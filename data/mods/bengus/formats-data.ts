@@ -108,4 +108,24 @@ xenosect: {
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
 	},
+worldsquidday2026: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
+9volt: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
+serenade: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
+antarctica: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	},
 };

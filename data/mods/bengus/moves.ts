@@ -174,7 +174,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			this.add('-anim', pokemon, "Miracle Eye", target);
 		},
 		
-		onHit(pokemon) {
+		onHit(target, pokemon, move) {
 			if (pokemon.baseSpecies.baseSpecies === 'Souldrake' && !pokemon.transformed) {
 				move.willChangeForme = true;
 			}
@@ -328,8 +328,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		target: "normal",
 	},
 
-	centiferno: {
-		name: "Centiferno",
+	scarletcentiferno: {
+		name: "Scarlet Centiferno",
 		type: "Fire",
 		category: "Physical",
 		basePower: 120,
@@ -455,9 +455,6 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
 			this.add('-anim', pokemon, "Searing Sunraze Smash", target);
-		},
-
-		onHit(target) {
 			const stats: BoostID[] = [];
 			let stat: BoostID;
 			for (stat in target.boosts) {
@@ -504,13 +501,13 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Physical",
 		basePower: 75,
 		accuracy: 100,
-		pp: 10,
+		pp: 5,
 		shortDesc: "Deals x2 damage if target does not deal damage this turn.",
 		desc: "",
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 
-		onBasePower(basePower, source, target, move) {
+		onBasePower(basePower, source, target) {
 			//const action = this.queue.willMove(target);
 			// const status = action?.choice === 'status' ? action.move : null;
 			// code needs to be reversed if un double slashed lmao idk
@@ -525,6 +522,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (!move || (move.category === 'Status' && move.id !== 'mefirst') || target.volatiles['mustrecharge']) {
+				this.add('-message', 'Xenosect takes the opportunity!');
 				return this.chainModify(2);
 			}
 			
@@ -538,6 +536,56 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		
 		secondary: null,
 		target: "normal",
+	},
+
+	bitterwinds: {
+		name: "Bitter Winds",
+		type: "Ice",
+		category: "Special",
+		basePower: 85,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Hits adjacent foes; applies the frostbite volatile.",
+		desc: "Hits adjacent foes; applies the frostbite volatile.",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1, wind:1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Icy Wind", target);
+		},
+		condition: {
+			duration: 3,
+			onStart(target) {
+				this.add('-start', target, 'Frostbite', '[silent]');
+			},
+
+			onResidual(target) {
+				if (!target.hp) return;
+				let move: Move | ActiveMove | null = target.lastMove;
+				if (!move || move.isZ) return;
+				if (move.isMax && move.baseMove) move = this.dex.moves.get(move.baseMove);
+
+				const ppDeducted = target.deductPP(move.id, 3);
+				if (!ppDeducted) return;
+				this.add('-activate', target, 'volatile: Frostbite', move.name, ppDeducted);
+			},
+
+
+			onResidualOrder: 22,
+			onEnd(target) {
+				this.add('-end', target, 'Frostbite', '[silent]');
+			},
+				
+		}
+
+		secondary: {
+			chance: 100,
+			onHit(target) {
+				target.addVolatile('frostbite');
+			},
+		},
+		// volatileStatus: 'frostbite',
+		target: "allAdjacentFoes",
 	},
 
 
