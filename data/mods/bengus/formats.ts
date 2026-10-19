@@ -3,13 +3,13 @@ import { FormatData } from '../../../sim/dex-formats';
 export const Formats: FormatData[] = [
 	{
 		name: "[Gen 9] Bengus OU",
-		desc: `Jizzing myself that I actually got this to work.`,
+		desc: `Moai statue emoji.`,
 		threads: [ //This shows up when using /tier on the format and is normally used for resource links
 			`&bullet; <a href="URL of your resource here">Name of your resource here</a>`,
 		],
 		mod: 'bengus',
 		ruleset: ['Standard NatDex', 'Terastal Clause', 'Species Clause', 'Sleep Clause Mod', 'Data Mod', 'Mega Data Mod', 'Evasion Clause', 'OHKO Clause'],
-		banlist: [ 'Arena Trap', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',],
+		banlist: [ 'Ali Dance', 'Arena Trap', 'Huge Power', 'Shadow Tag', 'Moody', 'King\'s Rock', 'Quick Claw', 'Razor Fang', 'Shed Tail', 'Baton Pass', 'Assist', 'Last Respects',],
 		unbanlist: ['Shedinja', 'G-Max Befuddle', 'G-Max Steelsurge', 'G-Max Cannonade', 'G-Max Hydrosnipe', 'G-Max Stonesurge'],
 		teambuilderFormat: 'National Dex',
 		onValidateTeam(team, format) {

@@ -73,7 +73,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		basePower: 130,
 		accuracy: 100,
-		pp: 10,
+		pp: 5,
 		shortDesc: "20% chance to paralyze the target.",
 		desc: "",
 		priority: 0,
@@ -160,7 +160,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 0,
 		accuracy: 100,
 		pp: 20,
-		shortDesc: "Raises SpA/Spe, lowers SpD. Souldrake: becomes awakened",
+		shortDesc: "Raises SpA/Spe, lowers SpD. Souldrake: awakens",
 		desc: "The user awakens to inner power, increasing Special Attack and Speed.",
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
@@ -273,7 +273,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		basePower: 60,
 		accuracy: 100,
 		pp: 10,
-		shortDesc: "Garunteed crit",
+		shortDesc: "Guarunteed crit",
 		desc: "",
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
@@ -311,7 +311,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		category: "Special",
 		basePower: 80,
 		accuracy: 100,
-		pp: 10,
+		pp: 15,
 		shortDesc: "30% chance to inflict burn",
 		desc: "MUSTARD MUSTARD MUSTARD",
 		priority: 0,
@@ -370,7 +370,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Masquerade",
 		type: "Fighting",
 		category: "Physical",
-		basePower: 80,
+		basePower: 65,
 		accuracy: 100,
 		pp: 10,
 		shortDesc: "Hits twice; high crit.",
@@ -445,8 +445,8 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		name: "Enigma Bolt",
 		type: "???",
 		category: "Physical",
-		basePower: 105,
-		accuracy: 100,
+		basePower: 106.14,
+		accuracy: 99.482,
 		pp: 10,
 		shortDesc: "This move is mysterious...",
 		desc: "This move is mysterious...",
@@ -516,6 +516,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 			//	return this.chainModify(2);
 			//}
 
+			//CURRENTLY WORKING YAY			
 
 			// try removing move parameter?
 
@@ -563,6 +564,105 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		// volatileStatus: 'frostbite',
 		target: "allAdjacentFoes",
 	},
+
+	kelptangle: {
+		name: "Kelp Tangle",
+		type: "Grass",
+		category: "Physical",
+		basePower: 25,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "Hits 2-5 times.",
+		desc: "",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		multihit: [2, 5],
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Grass Knot", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	selfraisingstrike: {
+		name: "Self-Raising Strike",
+		type: "Ground",
+		category: "Physical",
+		basePower: 50,
+		accuracy: 100,
+		pp: 15,
+		shortDesc: "Raises all base stats by 10%.",
+		desc: "",
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Sand Attack", target);
+		},
+		onModifyAtkPriority: 1,
+		onModifyAtk(atk, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifyDefPriority: 1,
+		onModifyDef(def, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpDPriority: 1,
+		onModifySpD(spd, pokemon) {
+			return this.chainModify(1.1);
+		},
+		onModifySpePriority: 1,
+		onModifySpe(spe, pokemon) {
+			return this.chainModify(1.1);
+
+		secondary: null,
+		target: "normal",
+	},
+
+	cavitation: {
+		name: "Cavitation",
+		type: "Fire",
+		category: "Physical",
+		basePower: 80,
+		accuracy: 100,
+		pp: 25,
+		shortDesc: "This attack is used as part of the ability 'Explosive Punches'",
+		desc: "",
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Doom Desire", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
+	omegastomatopodpunch: {
+		name: "Omega Stomatopod Punch",
+		type: "Fighting",
+		category: "Physical",
+		basePower: 105,
+		accuracy: 100,
+		pp: 5,
+		shortDesc: "Breaks and bypasses protect",
+		desc: "",
+		priority: 0,
+		flags: {contact:1, protect: 1, mirror: 1, metronome: 1, punch:1},
+		breaksProtect: true,
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Max Fist", target);
+		},
+		secondary: null,
+		target: "normal",
+	},
+
 
 
 };

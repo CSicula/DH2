@@ -54,7 +54,6 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 				const ppDeducted = pokemon.deductPP(move.id, 3);
 				if (!ppDeducted) return;
 				this.add('-activate', pokemon, 'volatile: Frostbite', move.name, ppDeducted);
-			},
 
 			
 		},

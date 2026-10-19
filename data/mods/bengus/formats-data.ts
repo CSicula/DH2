@@ -128,4 +128,16 @@ antarctica: {
 		doublesTier: "Bengus OU",
 		natDexTier: "Bengus OU",
 	},
+furbellows: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
+odontodactylus: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
 };

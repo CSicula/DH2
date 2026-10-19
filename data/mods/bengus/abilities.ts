@@ -80,12 +80,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	
 	soyellow:{
 		onTryHit(target, source, move) {
-			if (target !== source && move.flags['sound', 'pulse']) {
+			if (target !== source && move.flags['sound' || 'pulse']) {
 				source.trySetStatus('par', target);
 			}
 		},
 		onAllyTryHitSide(target, source, move) {
-			if (move.flags['sound', 'pulse']) {
+			if (move.flags['sound' || 'pulse']) {
 				source.trySetStatus('par', target);
 			}
 		},
@@ -158,7 +158,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 				return target.hp - 1;
 			}
 		},
-		flags: {},
+		flags: {breakable: 1},
 		name: "Veil of Midnight",
 		shortDesc: "20% not to be ko'd by a fatal attack.",
 	},
@@ -273,6 +273,49 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Living Weapon",
 		shortDesc: "Boosts damage after using a slicing move.",
+	},
+
+	subtidalzone: {
+		onStart(source) {
+			this.field.setTerrain('grassyterrain');
+			this.field.setWeather('raindance');
+		},
+		flags: {},
+		name: "Subtidal Zone",
+		shortDesc: "Sets rain and grassy terrain on entry.",
+	},
+
+	dusty: {
+		
+		onStart(pokemon) {
+			if (pokemon.dustBoost) return;
+			pokemon.dustBoost = true;
+			this.boost({evasion: 1}, pokemon);
+		},
+		flags: {},
+		name: "Dusty",
+		shortDesc: "Boosts evasion on switch-in, once per battle.",
+	},
+
+	explosivepunches: {
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['punch']) {
+				if (!source.cavitate) {
+					source.cavitate = true;
+					this.actions.useMove('cavitation', source);
+				}
+			}
+		},
+		onResidual(pokemon) {
+			pokemon.cavitate = false;
+		},
+		onStart(pokemon) {
+			pokemon.cavitate = false;
+		},
+
+		flags: {},
+		name: "Explosive Punches",
+		shortDesc: "User's punching moves hit for an additional 80bp physical fire-type hit.",
 	},
 
 

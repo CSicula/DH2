@@ -1,4 +1,20 @@
 export const Pokedex: {[k: string]: ModdedSpeciesData} = {
+
+	/*
+	placeholder: {
+		num: -1
+		name: "",
+		types: ["", ""],
+		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
+		abilities: {0: "", 1: "", H: ""},
+		weightkg: 0,
+	},
+	*/
+
+
+
+
+
 	mrflambaygo: {
 		num: -1,
 		name: "Mr Flambaygo",
@@ -209,7 +225,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	worldsquidday2026: {
 		num: -17,
-		name: "World Squid Day 26",
+		name: "World Squid Day 2026",
 		types: ["Water"],
 		baseStats: {hp: 137, atk: 115, def: 122, spa: 96, spd: 131, spe: 54},
 		abilities: {0: "Kraken's Wrath"},
@@ -241,6 +257,24 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		baseStats: {hp: 145, atk: 82, def: 113, spa: 124, spd: 152, spe: 79},
 		abilities: {0: "Snow Warning", 1:"Ice Body", H: "Snow Cloak"},
 		weightkg: 999.9,
+	},
+
+	furbellows: {
+		num: -21,
+		name: "Furbellows",
+		types: ["Grass", "Water"],
+		baseStats: {hp: 136, atk: 100, def: 73, spa: 64, spd: 122, spe: 48},
+		abilities: {0: "Subtidal Zone", 1: "Leaf Guard", H: "Chlorophyll"},
+		weightkg: 22,
+	},
+
+	odontodactylus: {
+		num: -22
+		name: "ODONTODACTYLUS",
+		types: ["Water", "Fire", "Fighting"],
+		baseStats: {hp: 71, atk: 95, def: 110, spa: 25, spd: 82, spe: 195},
+		abilities: {0: "Huge Power", 1: "Keen Eye", H: "Explosive Punches"},
+		weightkg: 0.6,
 	},
 
 };
