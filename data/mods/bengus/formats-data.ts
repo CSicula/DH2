@@ -140,4 +140,16 @@ odontodactylus: {
 		natDexTier: "Bengus OU",
 	
 	},
+whiteflour84g: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
+evilspotify: {
+		tier: "Bengus OU",
+		doublesTier: "Bengus OU",
+		natDexTier: "Bengus OU",
+	
+	},
 };

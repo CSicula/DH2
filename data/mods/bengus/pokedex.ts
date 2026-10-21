@@ -2,7 +2,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 
 	/*
 	placeholder: {
-		num: -1
+		num: -1,
 		name: "",
 		types: ["", ""],
 		baseStats: {hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 0},
@@ -269,12 +269,30 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 
 	odontodactylus: {
-		num: -22
+		num: -22,
 		name: "ODONTODACTYLUS",
 		types: ["Water", "Fire", "Fighting"],
 		baseStats: {hp: 71, atk: 95, def: 110, spa: 25, spd: 82, spe: 195},
 		abilities: {0: "Huge Power", 1: "Keen Eye", H: "Explosive Punches"},
 		weightkg: 0.6,
+	},
+
+	whiteflour84g: {
+		num: -23,
+		name: "White Flour (84g)",
+		types: ["Grass", "Ground"],
+		baseStats: {hp: 80, atk: 80, def: 80, spa: 80, spd: 80, spe: 80},
+		abilities: {0: "Dusty", 1: "Water Compaction"},
+		weightkg: 0.084,
+	},
+
+	evilspotify: {
+		num: -24,
+		name: "Evil Spotify",
+		types: ["Dark"],
+		baseStats: {hp: 70, atk: 3, def: 86, spa: 140, spd: 86, spe: 59},
+		abilities: {0: "Devious Beats"},
+		weightkg: 666,
 	},
 
 };

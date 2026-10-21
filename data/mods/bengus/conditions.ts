@@ -3,13 +3,13 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 		name: 'Fear',
 		// Volatile
 		onStart(target, source, sourceEffect) {
-			this.add('-message', 'Chris scares the opponent...');
+			this.add('-message', 'Opponent is scared...');
 			if (sourceEffect && sourceEffect.effectType === 'Ability') {
 				this.add('-status', target, 'fear', '[from] ability: ' + sourceEffect.name, '[of] ' + source);
 			} else {
 				this.add('-status', target, 'fear');
 			}
-			this.effectState.time = this.random(min, 6);
+			this.effectState.startTime = this.random(2, 5);
 		},
 
 		onEnd(target) {
@@ -37,7 +37,7 @@ export const Conditions: {[id: string]: ModdedConditionData} = {
 			} else {
 				this.add('-status', target, 'frostbite');
 			}
-			this.effectState.time = this.random(min, 6);
+			this.effectState.startTime = this.random(2, 5);
 		},
 
 		onEnd(target) {

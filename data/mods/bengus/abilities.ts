@@ -237,7 +237,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			
 			// this.add('-activate', pokemon, 'ability: Living Weapon');
 			const marks = 0;
-			this.add('-start', pokemon, `marks${marks}`, '[silent]');
+			this.add('-start', pokemon, `marks: ${marks}`, '[silent]');
 			this.effectState.marks = marks;
 
 		},
@@ -250,7 +250,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
 			move.flags['futuremove'] || move.spreadHit || move.isZ || move.isMax) return;
-			if (move.flags['sound']) {
+			if (move.flags['slicing']) {
 				this.add('-activate', pokemon, 'ability: Living Weapon');
 				this.effectState.marks += 1;
 
@@ -316,6 +316,39 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		flags: {},
 		name: "Explosive Punches",
 		shortDesc: "User's punching moves hit for an additional 80bp physical fire-type hit.",
+	},
+
+
+	ruthless: {
+		onSourceAfterFaint(length, target, source, effect) {
+			if (effect && effect.effectType === 'Move') {
+				this.boost({atk: length}, source);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, pokemon) {
+			if (pokemon.status) {
+				return this.chainModify(1.5);
+			}
+		},
+
+		flags: {},
+		name: "Ruthless",
+		shortDesc: "Moxie + Guts",
+	},
+
+	deviousbeats: {
+		
+		onSourceDamagingHit(damage, target, source, move) {
+			if (move.flags['sound']) {
+				target.addVolatile('fear');
+			}
+		},
+
+
+		flags: {},
+		name: "Devious Beats",
+		shortDesc: "Sound-based moves apply fear.",
 	},
 
 

@@ -619,7 +619,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		onModifySpePriority: 1,
 		onModifySpe(spe, pokemon) {
 			return this.chainModify(1.1);
-
+		},
 		secondary: null,
 		target: "normal",
 	},
@@ -637,7 +637,7 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Doom Desire", target);
+			this.add('-anim', pokemon, "G-Max Wildfire", target);
 		},
 		secondary: null,
 		target: "normal",
@@ -657,12 +657,32 @@ export const Moves: {[moveid: string]: ModdedMoveData} = {
 		breaksProtect: true,
 		onPrepareHit(target, pokemon, move) {
 			this.attrLastMove('[still]');
-			this.add('-anim', pokemon, "Max Fist", target);
+			this.add('-anim', pokemon, "Max Knuckle", target);
 		},
 		secondary: null,
 		target: "normal",
 	},
 
+
+	sickandtwistedphonk: {
+		name: "Sick and Twisted Phonk",
+		type: "Dark",
+		category: "Special",
+		basePower: 95,
+		accuracy: 100,
+		pp: 20,
+		shortDesc: "No additional affect.",
+		desc: "",
+		priority: 0,
+		flags: {sound: 1, protect: 1, mirror: 1, metronome: 1},
+		onPrepareHit(target, pokemon, move) {
+			this.attrLastMove('[still]');
+			this.add('-anim', pokemon, "Boomburst", target);
+			this.add('-message', 'BWOMP BWOMP BWOMP BWOMP')
+		},
+		secondary: null,
+		target: "normal",
+	},
 
 
 };
